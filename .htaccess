@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Rewrite all requests to public/index.php
+RewriteRule ^(.*)$ public/index.php [L]
+
+# Deny access to all directories and files except public
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} !^/public/
+  RewriteRule ^(.*)$ - [F,L]
+</IfModule>
